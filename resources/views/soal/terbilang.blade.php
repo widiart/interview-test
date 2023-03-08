@@ -24,13 +24,41 @@
   <section class="content">
     <div class="card">
       <div class="card-body">
-        <h3>Initialization</h3>
-        <h4>Input : {{$a}}</h4>
-        <h4>Terbilang : {{$terbilang}}</h4>
+        <div class="d-none">
+          <h3>Initialization</h3>
+          <h4>Input : {{$a}}</h4>
+          <h4>Terbilang : {{$terbilang}}</h4>
+        </div>
+
+        <h3>Form Mengubah Angka menjadi Kata</h3>
+        <h4>Angka : </h4>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+          <button type="button" class="btn btn-primary" onclick="terbilang()"> Proses </button>
+          </div>
+          
+          <input type="text" id="angka" class="form-control">
+        </div>
+        <h4>Terbilang : <span id="label"></span></h4>
       </div>
     </div>
   </section>
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->    
+@endsection
+
+@section('script')
+    <script>
+      function terbilang() {
+        $.ajax({
+          url: "{{route('soal.terbilang_ajax')}}",
+          method: "POST",
+          data: {_token: "{{csrf_token()}}",angka:$("#angka").val() },
+          success: function(result) {
+            $("#label").html(result)
+          }
+        })
+      }
+    </script>
 @endsection

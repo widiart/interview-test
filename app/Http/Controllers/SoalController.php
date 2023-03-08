@@ -17,9 +17,17 @@ class SoalController extends Controller
 
     public function terbilang(Request $request) 
     {
-        $a = '111111';
+        $a = '300123';
 
         $terbilang = TerbilangHelper::convert($a);
         return view('soal.terbilang',compact('a','terbilang'));
+    }
+
+    public function terbilang_ajax(Request $request) 
+    {
+        $a = $request->angka;
+
+        $terbilang = TerbilangHelper::convert($a);
+        return $terbilang;
     }
 }

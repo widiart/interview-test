@@ -26,5 +26,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/swap', 'SoalController@swap')->name('soal.swap');
     Route::get('/terbilang', 'SoalController@terbilang')->name('soal.terbilang');
+    Route::post('/terbilang', 'SoalController@terbilang_ajax')->name('soal.terbilang_ajax');
 });
 
