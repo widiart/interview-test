@@ -85,7 +85,8 @@
       })
 
       $(document).on("click","#{{$modal['update']['label']}}", function() {
-        formModal($("#{{$modal['update']['id']}}"),"{{route($route.'.update')}}")
+        let id = $(this).data('id')
+        formModal($("#{{$modal['update']['id']}}"),"{{route($route.'.update')}}",id)
       })
 
       $(document).on("click","#{{$modal['create']['label']}}", function() {
@@ -131,8 +132,7 @@
         })
       })
 
-      function formModal(el,url) {
-        let id = el.data('id')
+      function formModal(el,url,id=null) {
         el.find('#error').html('')
         el.find('.modal-body').html('');
         el.modal('show')
@@ -149,7 +149,8 @@
       }
 
       function submit(id) {
-        let form = $("#"+id+" form");
+        let el = $("#"+id)
+        let form = el.find("form");
         let data = form.serialize();
         $("#"+id+" #error").html('')
         form.find('input').attr('disabled',true);
@@ -173,7 +174,7 @@
             form.find('input').removeAttr('disabled');
           },
           error: function(result) {
-            showError(result.responseJSON.errors)
+            showError(el,result.responseJSON.errors)
             form.find('input').removeAttr('disabled');
           }
         })
@@ -187,8 +188,8 @@
         $("#cover").hide()
       }
 
-      function showError(data) {
-        let container = $("#{{$modal['update']['id']}} #error")
+      function showError(el,data) {
+        let container = $(el).find("#error")
         for (let value in data) {
           container.append('<div class="alert alert-danger" role="alert">' + data[value] + '</div>');
         }

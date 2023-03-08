@@ -93,12 +93,12 @@ class UserController extends Controller
         ]);
 
         if(empty($id)) {
+            $message = 'User Has Been Created!';
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
-            $message = 'User Has Been Created!';
         } else {
             $message = 'User Has Been Updated!';
             $user = User::find($id);
