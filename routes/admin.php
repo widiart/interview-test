@@ -21,5 +21,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/user/update/{id?}', 'UserController@update')->name('user.update');
     Route::post('/user/store/{id?}', 'UserController@store')->name('user.store');
     Route::post('/user/delete/{id?}', 'UserController@delete')->name('user.delete');
+
+    Route::get('/product', 'ProductController@index')->name('product.index');
+
+    Route::get('/swap', 'SoalController@swap')->name('soal.swap');
+    Route::get('/terbilang', 'SoalController@terbilang')->name('soal.terbilang');
 });
 

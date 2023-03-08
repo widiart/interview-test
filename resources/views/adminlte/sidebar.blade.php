@@ -44,6 +44,30 @@
           </a>
         </li>
         <li class="nav-item">
+          <a href="{{route('soal.swap')}}" class="nav-link">
+            <i class="nav-icon fas fa-sync-alt"></i>
+            <p>
+              Swapping Var
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('soal.terbilang')}}" class="nav-link">
+            <i class="nav-icon fas fa-coins"></i>
+            <p>
+              Terbilang
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('product.index')}}" class="nav-link">
+            <i class="nav-icon fas fa-layer-group"></i>
+            <p>
+              Product Stock
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
           <a href="#" onclick="$('#signout').submit()" class="nav-link">
             <form action="{{route('logout')}}" id="signout" method="POST">
               @csrf
