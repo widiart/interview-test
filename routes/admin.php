@@ -15,8 +15,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth')->group(function () {
     Route::get('/admin', 'AdminController@index')->name('admin.index');
     Route::get('/user', 'UserController@index')->name('user.index');
-    Route::get('/user/detail/{id}', 'UserController@index')->name('user.detail');
-    Route::get('/user/update/{id}', 'UserController@index')->name('user.update');
-    Route::get('/user/delete/{id}', 'UserController@index')->name('user.delete');
+    Route::post('/user/refresh', 'UserController@ajax_refresh')->name('user.ajax_refresh');
+    Route::post('/user/create', 'UserController@create')->name('user.create');
+    Route::post('/user/detail/{id?}', 'UserController@detail')->name('user.detail');
+    Route::post('/user/update/{id?}', 'UserController@update')->name('user.update');
+    Route::post('/user/store/{id?}', 'UserController@store')->name('user.store');
+    Route::post('/user/delete/{id?}', 'UserController@delete')->name('user.delete');
 });
 

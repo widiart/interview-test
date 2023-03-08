@@ -22,7 +22,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <x-adminlte-table :title="'List User'" :data="$model" :column="$column" :route="'user'"></x-adminlte-table>
+      <x-adminlte-table :title="'List User'" :id="'user-table'" :data="$model" :column="$column" :route="'user'"></x-adminlte-table>
 
     </section>
     <!-- /.content -->
