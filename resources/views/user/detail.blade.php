@@ -1,0 +1,1 @@
+<x-adminlte-detail :title="'Detail User '.ucwords($model->name)" :data="$model" :column="$column" :route="'user'"></x-adminlte-detail>

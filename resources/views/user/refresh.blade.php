@@ -1,0 +1,1 @@
+<x-adminlte-table-ajax :title="'List User'" :id="'user-table'" :data="$model" :column="$column" :route="'user'"></x-adminlte-table-ajax>
